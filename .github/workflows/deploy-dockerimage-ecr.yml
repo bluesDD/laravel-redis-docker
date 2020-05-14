@@ -3,7 +3,7 @@ name: Deploy To Ecr
 on:
   push:
   pull_request:
-    paths:
+      paths:
       - "docker/php/Dockerfile"
 
 jobs:
