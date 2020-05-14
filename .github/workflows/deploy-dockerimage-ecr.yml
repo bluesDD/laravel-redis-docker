@@ -2,8 +2,8 @@ name: Deploy To Ecr
 
 on:
   push:
-  paths:
-    - docker/php/Dockerfile
+    paths:
+      - docker/php/Dockerfile
 
 jobs:
   deploy:
