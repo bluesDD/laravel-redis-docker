@@ -30,13 +30,13 @@ jobs:
         id: build-image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: pbp-redis
+          ECR_REPOSITORY: php-redis
           IMAGE_TAG: ${{ github.sha }}
         run: |
             # Build a docker container and
             # push it to ECR so that it can
             # be deployed to ECS.
-            cd ./docker/php/
+            cd ./docker/php/      
             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
             echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
