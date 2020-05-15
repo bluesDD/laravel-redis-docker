@@ -36,5 +36,8 @@ jobs:
         run: |
             cd ./docker/php/      
             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+            docker tag php-redis:latest 960509685049.dkr.ecr.ap-northeast-1.amazonaws.com/php-redis:latest
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
             echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+
+
