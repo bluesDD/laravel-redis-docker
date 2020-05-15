@@ -9,4 +9,3 @@ RUN apk update && \
   libjpeg-dev \
   libpng-dev \
   xvfb libfontconfig wkhtmltopdf \
-  echo TT
