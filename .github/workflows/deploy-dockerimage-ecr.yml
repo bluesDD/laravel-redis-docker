@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
       paths:
-      - "docker/php/Dockerfile"
+      - "./docker/php/Dockerfile"
 
 jobs:
   deploy:
@@ -33,9 +33,6 @@ jobs:
           ECR_REPOSITORY: php-redis
           IMAGE_TAG: ${{ github.sha }}
         run: |
-            # Build a docker container and
-            # push it to ECR so that it can
-            # be deployed to ECS.
             cd ./docker/php/      
             docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
             docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
